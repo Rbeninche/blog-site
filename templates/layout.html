@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+     <!-- Bootstrap CSS -->
+     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+     <link href="https://fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet">
+     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='main.css') }}">
+    <title>Redginald's Blog</title>
+    
+</head>
+<body>
+        <header class="site-header">
+                <nav class="navbar navbar-expand-md navbar-dark {{color_signIn if current_user.is_authenticated else color_signOut }} fixed-top">
+                  <div class="container">
+                    <a class="navbar-brand mr-5" href="https://rbeninche.github.io/html-me-something/" target="_blank">{% if current_user.is_authenticated %}{{ current_user.username }} {% endif %}</a>
+                    <div class="collapse navbar-collapse" id="navbarToggle">
+                      <div class="navbar-nav mr-auto">
+                          <a class="nav-item nav-link" href="{{ url_for('users') }}">Users</a>
+                        <a class="nav-item nav-link" href="{{ url_for('display_blogs') }}">Main Blog Page</a>
+                        <a class="nav-item nav-link" href="{{ url_for('add_new_post')}}">Add a blog entry</a>
+                      </div>
+                      <!-- Navbar Right Side -->
+                      <div class="navbar-nav">
+
+                        {% if current_user.is_authenticated %}
+                        <a class="nav-item nav-link" href="{{ url_for('logout') }}">Logout</a>
+
+                        {% else %}
+                        <a class="nav-item nav-link" href="{{ url_for('login') }}">Login</a>
+                        
+                        <a class="nav-item nav-link" href="{{ url_for('signup') }}">Register</a>
+                        {% endif %}
+                      </div>
+                    </div>
+                  </div>
+                </nav>
+              </header>
+    <div class="container hero">
+      {% with messages = get_flashed_messages(with_categories=true) %}
+      {% if messages %}
+        {% for category, message in messages %}
+        <div class="alert alert-{{ category }}">
+            {{ message }}
+        </div>
+        {% endfor %}
+        {% endif %}
+      {% endwith %}
+            {% block content %}{% endblock %}
+    </div>
+   
+
+    <!-- FOOTER -->
+    <footer id="main-footer" class="text-center p-4">
+            <div class="container">
+              <div class="icon-bar mb-3">
+                <a
+                  href="http://facebook.com/benredgy"
+                  target="_blank"
+                  class="facebook"
+                  ><i class="fa fa-facebook"></i
+                ></a>
+                <a href="http://twitter.com/benredgy" target="_blank" class="twitter"
+                  ><i class="fa fa-twitter"></i
+                ></a>
+                <a
+                  href="http://linkedin.com/in/reginald-beninche/"
+                  target="_blank"
+                  class="linkedin"
+                  ><i class="fa fa-linkedin"></i
+                ></a>
+                <a href="https://github.com/Rbeninche" target="_blank" class="github"
+                  ><i class="fa fa-github"></i
+                ></a>
+              </div>
+              <div class="row">
+                <div class="col footer-description">
+                  <p>Copyright &copy; <span id="year">{{ current_year }}</span> Reginald Beninche</p>
+                  <p>{{ current_day }} | {{ current_time }}</p>
+                  <ul class="list-inline">
+                    <p>Built with</p>
+                    <li class="list-inline-item">
+                      <a href="https://www.w3.org/TR/html52/" target="_blank"
+                        >HTML5</a
+                      >
+                    </li>
+                    <li class="list-inline-item techUsed">
+                      <a
+                        href="https://www.w3.org/standards/techs/css#w3c_all"
+                        target="_blank"
+                        >CSS3</a
+                      >
+                    </li>
+                    <li class="list-inline-item">
+                      <a href="https://getbootstrap.com/" target="_blank"
+                        >Bootstrap</a
+                      >
+                    </li>
+                    <li class="list-inline-item">
+                      <a href="https://www.python.org/" target="_blank"
+                        >Python</a
+                      >
+                    </li>
+                    <li class="list-inline-item">
+                      <a
+                        href="https://flask.palletsprojects.com/en/1.1.x/"
+                        target="_blank"
+                        >Flask</a
+                      >
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </footer>
+    
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+</body>
+</html>

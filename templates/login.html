@@ -1,0 +1,94 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<div class="container">
+    <form method="POST" action="/login">
+        <div class="row">
+            <div class="col-md-3"></div>
+            <div class="col-md-6">
+                <h2>Please Login</h2>
+                <hr>
+            </div>
+        </div>
+        </div>
+         <!-- End of Username -->
+          
+         <!-- Start of Email Form -->
+        <div class="row">
+            <div class="col-md-3 field-label-responsive">
+                <label for="email">E-Mail Address</label>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <div class="input-group mb-2 mr-sm-2 mb-sm-0">
+                        <div class="input-group-addon" style="width: 2.6rem"><i class="fa fa-at"></i></div>
+                        <input type="text" name="email" class="form-control" id="email" value="{{ request.form['email'] }}" placeholder="you@example.com">
+                    </div>
+                </div>
+            </div>
+             <!-- Email Validation -->
+             {% if email_error %}
+             <div class="col-md-3">
+                 <div class="form-control-feedback">
+                    <span class="text-danger align-middle">
+                        {{ email_error }}
+                    </span>
+                 </div>
+             </div>
+             {% endif %}
+             <!-- End Of Email Validation -->
+        </div>
+        <!-- End of Email Form -->
+
+        <!-- Start of Password Form -->
+        <div class="row">
+            <div class="col-md-3 field-label-responsive">
+                <label for="password">Password</label>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group has-danger">
+                    <div class="input-group mb-2 mr-sm-2 mb-sm-0">
+                        <div class="input-group-addon" style="width: 2.6rem"><i class="fa fa-key"></i></div>
+                        <input type="password" name="password" class="form-control" id="password" placeholder="Password">
+                    </div>
+                </div>
+            </div>
+            
+             <!-- Password Validation -->
+             {% if password_error %}
+             <div class="col-md-3">
+                 <div class="form-control-feedback">
+                    <span class="text-danger align-middle">
+                        {{ password_error }}
+                    </span>
+                 </div>
+             </div>
+             {% endif %}
+             <!-- End Of Password Validation -->
+        </div>
+        <!-- End of Password Form -->
+        <div class="row my-1">
+                <div class="col-md-3"></div>
+                <div class="col-md-6 form-check">
+                  <input class="form-check-input" type="checkbox" id="remember" name="remember">
+                  <label class="form-check-label" for="remember">
+                    Remember me
+                  </label>
+                </div>
+              </div>
+
+        <div class="row">
+            <div class="col-md-3"></div>
+            <div class="col-md-6">
+                <button type="submit" class="btn btn-success"><i class="fa fa-user-plus"></i> Log In</button>
+                <small class="text-muted">
+                    <a href="#">Forgot Password?</a>
+                </small>
+            </div>
+            
+        </div>
+        
+    </form>
+</div>
+{% endblock content %}
+

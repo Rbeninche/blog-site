@@ -1,0 +1,60 @@
+{% extends "layout.html" %}
+{% block content %}
+<div class="container">
+
+ 
+  
+  <div class="jumbotron">
+    <div class="text-center">
+      <h1 >Welcome to the page for {{user.username}}</h1>
+    </div>
+  </div>
+
+
+  {% if post_number == 0 %}
+  <div class="alert alert-primary" role="alert">
+      <p class="h5">{{user.username }} hasn't posted anything yet!</p>
+    </div>
+
+{% endif %}
+
+
+{% for post in posts.items %}
+
+
+<div class="card">
+    <div class="card-header">
+      <small class="text-muted">Published on: {{ post.date_posted.strftime('%m-%d-%Y') }} @ {{ post.date_posted.strftime('%X') }}</small>
+    </div>
+    <div class="card-body">
+      <h4><a href="{{ url_for('single_post', post_id=post.id) }}">{{ post.post_title }}</a></h4>
+      <p class="card-text">{{ post.post_body }}</p>
+    </div>
+  </div>
+  <br />
+
+
+
+
+
+         
+
+{% endfor %}
+
+
+</div>
+
+<nav aria-label="Page navigation example">
+  <ul class="pagination justify-content-center">
+
+    {% for page_num in posts.iter_pages(left_edge=1, right_edge=1, left_current=1, right_current=2) %}
+            {% if posts.page == page_num %}
+              <li class="page-item disabled">
+                <a class="page-link" href="{{ url_for('user_posts', username=user.username, page=page_num) }}">{{ page_num }}</a></li>
+              </li>
+            {% else %}
+              <li class="page-item"><a class="page-link" href="{{ url_for('user_posts', username=user.username, page=page_num) }}">{{ page_num }}</a></li>
+            {% endif %}
+    {% endfor %}
+</nav>
+{% endblock content %}

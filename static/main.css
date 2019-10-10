@@ -1,0 +1,163 @@
+html, body {
+    height: 100%;
+  }
+  
+  a { color: inherit; } 
+  
+  body {
+    background: #fafafa;
+    color: #333333;
+    margin-top: 5rem;
+    display: flex;
+    flex-direction: column
+    
+  
+  }
+  
+  
+  h1, h2, h3, h4, h5, h6 {
+    color: #444444;
+  }
+  
+  
+  
+  .site-header .navbar-nav .nav-link {
+    color: #cbd5db;
+  }
+  
+  .site-header .navbar-nav .nav-link:hover {
+    color: #ffffff;
+  }
+  
+  .site-header .navbar-nav .nav-link.active {
+    font-weight: 500;
+  }
+  
+  .require {
+    color: #666;
+  }
+  label small {
+    color: #999;
+    font-weight: normal;
+  }
+  
+  .content-section {
+    background: #ffffff;
+    padding: 10px 20px;
+    border: 1px solid #dddddd;
+    border-radius: 3px;
+    margin-bottom: 20px;
+  }
+  
+  .article-title {
+    color: #444444;
+  }
+  
+  a.article-title:hover {
+    color: #428bca;
+    text-decoration: none;
+  }
+  
+  .article-content {
+    white-space: pre-line;
+  }
+  
+  
+  .article-metadata {
+    padding-bottom: 1px;
+    margin-bottom: 4px;
+    border-bottom: 1px solid #e3e3e3
+  }
+  
+  .article-metadata a:hover {
+    color: #333;
+    text-decoration: none;
+  }
+  
+  .article-svg {
+    width: 25px;
+    height: 25px;
+    vertical-align: middle;
+  }
+  
+  .account-img {
+    height: 125px;
+    width: 125px;
+    margin-right: 20px;
+    margin-bottom: 16px;
+  }
+  
+  .account-heading {
+    font-size: 2.5rem;
+  }
+  .hero {
+    flex: 1 0 auto
+  }
+  
+  #main-footer {
+    background-color: #343a40;
+    color: white;
+    flex-shrink: 0;
+  }
+  
+  #main-footer ul p {
+    text-transform: uppercase;
+    color: red;
+    margin-bottom: 0;
+  }
+  
+  .icon-bar {
+    text-align: center;
+  }
+  
+  .icon-bar a {
+    display: inline-block;
+  
+    padding: 10px;
+    transition: all 0.3s ease;
+    color: white;
+    font-size: 20px;
+  }
+  
+  .icon-bar a:hover {
+    background-color: #000;
+  }
+  
+  .facebook {
+    background: #3b5998;
+    color: white;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+  }
+  
+  .twitter {
+    background: #55acee;
+    color: white;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+  }
+  
+  .linkedin {
+    background: #007bb5;
+    color: white;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+  }
+  .github {
+    background: #3b5998;
+    color: white;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+  }
+  
+  
+  @media(min-width: 768px) {
+      .field-label-responsive {
+        padding-top: .5rem;
+        text-align: right;
+      }
+    }
