@@ -1,4 +1,4 @@
 .vscode
 *.pyc
 __pycache__
-dbconnect.py
+.env

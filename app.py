@@ -1,6 +1,5 @@
 from flask import Flask
-from dbconnect import connection_string
-
+import os
 
 from flask_sqlalchemy import SQLAlchemy
 
@@ -13,9 +12,7 @@ if ENV == 'dev':
     app.debug = True
     app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://blog:password123@localhost:8889/blog'
 
-else:
-    app.debug = False
-    app.config['SQLALCHEMY_DATABASE_URI'] = connection_string
+SQLALCHEMY_DB_URL = os.getenv('DB_CONN')
 
 app.config['SQLALCHEMY_ECHO'] = True
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = True
