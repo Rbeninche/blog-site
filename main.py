@@ -1,5 +1,4 @@
 from flask import render_template, request, redirect, url_for, flash, abort
-
 from flask_login import LoginManager, login_user, current_user, logout_user, login_required, UserMixin
 
 from app import app, db
