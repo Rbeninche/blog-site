@@ -10,8 +10,6 @@ load_dotenv()
 
 app = Flask(__name__)
 app.jinja_env.filters['zip'] = zip
-
-
 app.debug = True
 app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://blog:password123@localhost:8889/blog'
 
