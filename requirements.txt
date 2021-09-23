@@ -34,4 +34,3 @@ wincertstore==0.2
 WTForms==2.1
 python-dotenv
 pymysql
-requests
