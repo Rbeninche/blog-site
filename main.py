@@ -250,5 +250,9 @@ def users():
 
 app.secret_key = '2d9b6941f4497350b2d8c7ae1321a312'
 
+@app.before_first_request
+def setup():
+     db.create_all()
+
 if __name__ == "__main__":
     app.run(debug=True)

@@ -15,7 +15,7 @@ app.debug = True
 
 ##Connect to DB
 
-SQLALCHEMY_DB_URL = os.getenv("DB_CONN")
+app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DATABASE_URL')
 
 app.config['SQLALCHEMY_ECHO'] = True
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = True
