@@ -11,10 +11,11 @@ load_dotenv()
 app = Flask(__name__)
 app.jinja_env.filters['zip'] = zip
 app.debug = True
-app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://blog:password123@localhost:8889/blog'
+# app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://blog:password123@localhost:8889/blog'
 
+##Connect to DB
 
-SQLALCHEMY_DB_URL = os.environ.get('JAWSDB_URL')
+app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DATABASE_URL')
 
 app.config['SQLALCHEMY_ECHO'] = True
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = True
